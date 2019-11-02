@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<Puzzle>
+    <!-- Room Layout for Puzzle	-->
+    <Room type="Normal" condition = "2" name = "start" description = "You round the corner to see a ghastly scene. A semitranslucent figure hangs in the air, studded with crossbow bolts and with blood pouring from every wound. It reaches toward you in a pleading gesture, points to the walls on either side of the room, and then vanishes. Once it has gone, you notice small holes in the walls, each just large enough for a bolt to pass through.">
+        <Neighbor transition = 'd' target = "room1"/>
+        <Neighbor transition = 's' target = "room3"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Magic" condition = "2" name = "room1" description = "Truly... a very magic room!">
+        <Neighbor transition = 'a' target = "start"/>
+        <Neighbor transition = 's' target = "room4"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "0" name = "room2" description = "You round the corner of the hall to confront a passage nearly blocked with crates, barrels, and chests. It seems someone set them up to barricade the hall. Three barrels are set up as seats near gaps in the barricade, no doubt the place where archers waited for foes. A rusting and torn breastplate hangs from a rope near the wall.">
+        <Neighbor transition = 's' target = "room5"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "2" name = "room3" description = "Huge rusted metal blades jut out of cracks in the walls, and rusting spikes project down from the ceiling almost to the floor. This room may have once been trapped heavily, but someone triggered them, apparently without getting killed. The traps were never reset and now seem rusted in place.">
+        <Neighbor transition = 'w' target = "start"/>
+        <Neighbor transition = 'd' target = "room4"/>
+      	<Neighbor transition = 's' target = "room6"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "2" name = "room4" description = "A stone throne stands on a foot-high circular dais in the center of this cold chamber. The throne and dais bear the simple adornments of patterns of crossed lines -- a pattern also employed around each door to the room.">
+        <Neighbor transition = 'a' target = "room3"/>
+        <Neighbor transition = 'w' target = "room1"/>
+        <Neighbor transition = 'd' target = "room5"/>
+        <Neighbor transition = 's' target = "room6"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "2" name = "room5" description = "You've opened the door to a torture chamber. Several devices of degradation, pain, and death stand about the room, all of them showing signs of regular use. The wood of the rack is worn smooth by struggling bodies, and the iron maiden appears to be occupied by a corpse.">
+        <Neighbor transition = 'a' target = "room4"/>
+        <Neighbor transition = 'w' target = "room2"/>
+        <Neighbor transition = 's' target = "room7"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "1" name = "room6" description = "Stinking smoke wafts up from braziers made of skulls set around the edges of this room. The walls bear scratch marks and lines of soot that form crude pictures and what looks like words in some language [Goblin]. To the left lies a pile of rubbish and rubble heaped into a crude dais. The dais has upon it an ironbound chest that has been painted with a goblinlike face. Furs and skins of unknown origin are strewn haphazardly about the floor before the dais.">
+        <Neighbor transition = 'a' target = "room3"/>
+        <Neighbor transition = 'w' target = "room4"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Magic" condition = "2" name = "room7" description = "Truly... a very magic room!">
+        <Neighbor transition = 'w' target = "room5"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+        <Room type="Normal" condition = "3" name = "quit" description = "Description of quit.">
+    </Room>
+</Puzzle>

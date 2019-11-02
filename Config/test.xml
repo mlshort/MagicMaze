@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<Puzzle>
+    <!-- Room Layout for Puzzle	-->
+    <Room type="Normal" condition = "2" name = "start" description = "Description of start room.">
+        <Neighbor transition = 'd' target = "room1"/>
+        <Neighbor transition = 's' target = "room2"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "2" name = "room1" description = "Description of room one.">
+        <Neighbor transition = 'a' target = "start"/>
+        <Neighbor transition = 's' target = "room2"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Magic" condition = "2" name = "room2" description = "Description of room two.">
+        <Neighbor transition = 'a' target = "start"/>
+        <Neighbor transition = 'd' target = "room1"/>
+        <Neighbor transition = 'q' target = "quit"/>
+    </Room>
+    <Room type="Normal" condition = "3" name = "quit" description = "Description of quit.">
+    </Room>
+</Puzzle>
