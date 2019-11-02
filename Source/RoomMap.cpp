@@ -25,7 +25,7 @@
 #include "RoomMap.h"
 
 
-ROOM_TYPE StringToRoomType( const TCHAR* szType )
+ROOM_TYPE StringToRoomType( const TCHAR* szType ) noexcept
 {
     ROOM_TYPE tReturn = RM_INVALID;
 
@@ -37,9 +37,6 @@ ROOM_TYPE StringToRoomType( const TCHAR* szType )
     return tReturn;
 };
 
-CRoomMap::~CRoomMap()
-{
-};
 
 bool CRoomMap::Initialize( const PUZZLE_DATA& data )
 {

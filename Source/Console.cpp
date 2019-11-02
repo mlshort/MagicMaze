@@ -61,7 +61,7 @@ void OutputConsoleFillChar( int iChar )
 {
     HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
     CONSOLE_SCREEN_BUFFER_INFO csbi;
-    DWORD                      dwWritten;
+    DWORD                      dwWritten = 0;
 
     if ( GetConsoleScreenBufferInfo( hConsole, &csbi ) )
     {

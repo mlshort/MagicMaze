@@ -24,15 +24,12 @@
     #define FAILED(hr) (((HRESULT)(hr)) < 0)
 #endif
 
-CGame::~CGame()
-{
-}
 
-bool CGame::IsGameFinished( const CRoom* pRoom ) const
+bool CGame::IsGameFinished( const CRoom* pRoom ) const noexcept
 {
     bool bResult = false;
 
-    if ( pRoom->IsFinished() || m_iHealth <= 0 )
+    if ( (pRoom == nullptr) || pRoom->IsFinished() || m_iHealth <= 0 )
     {
         bResult = true;
     }
@@ -47,7 +44,7 @@ bool CGame::LoadConfigFile ( const TCHAR* szXmlFile )
     if ( szXmlFile && szXmlFile[0] )
     {
         HRESULT hr;
-        IStream*  pFileStream;
+        IStream*  pFileStream = nullptr;
 
         // open a read only input stream
         if ( FAILED( hr = CFileStream::OpenFile( szXmlFile, &pFileStream, false ) ) )

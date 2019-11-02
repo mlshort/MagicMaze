@@ -35,10 +35,10 @@ typedef enum _ROOM_TYPE
     RM_MAGIC
 } ROOM_TYPE;
 
-inline bool IsValid( CONDITION_TYPE cnd )
+constexpr bool IsValid( CONDITION_TYPE cnd ) noexcept
 { return cnd != CND_INVALID; };
 
-inline bool IsValid ( ROOM_TYPE type )
+constexpr bool IsValid ( ROOM_TYPE type ) noexcept
 { return type != RM_INVALID; };
 
 #endif

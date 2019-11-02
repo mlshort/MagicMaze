@@ -33,12 +33,12 @@ struct NEIGHBOR_DATA
     { };
 
     /// Copy constructor
-    NEIGHBOR_DATA( const NEIGHBOR_DATA& othr ) noexcept
+    NEIGHBOR_DATA( const NEIGHBOR_DATA& othr )
         : m_iTransitionKey( othr.m_iTransitionKey ),
-          m_strTarget       ( othr.m_strTarget )
+          m_strTarget     ( othr.m_strTarget )
     { };
 
-    NEIGHBOR_DATA( int iTrans, const tstring& strTarget ) noexcept
+    NEIGHBOR_DATA( int iTrans, const tstring& strTarget )
         : m_iTransitionKey(iTrans),
           m_strTarget(strTarget)
     { };
@@ -78,7 +78,7 @@ struct ROOM_DATA
     { };
 
     /// copy constructor
-    ROOM_DATA( const ROOM_DATA& othr ) noexcept
+    ROOM_DATA( const ROOM_DATA& othr )
         : m_iCondition    ( othr.m_iCondition ),
           m_strType       ( othr.m_strType ),
           m_strName       ( othr.m_strName ),

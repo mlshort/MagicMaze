@@ -37,15 +37,15 @@ protected:
 
 public:
     /// Copy Constructor
-    CNormalRoom( const CNormalRoom& othr ) noexcept
+    CNormalRoom( const CNormalRoom& othr )
         : CRoom ( othr )
     { };
 
     /// Default Destructor
-    virtual ~CNormalRoom();
+    ~CNormalRoom() = default;
 
     // virtual methods
-    virtual CRoom* Execute( CRoomMap*, int& iHealth );
+    CRoom* Execute( CRoomMap*, int& iHealth ) override;
 
     friend CRoomFactory;
 };

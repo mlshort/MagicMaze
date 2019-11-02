@@ -88,7 +88,7 @@ public:
           m_mapNeighbors()
     { };
 
-    explicit CRoom( ROOM_TYPE type, CONDITION_TYPE cnd, const tstring& strId, const tstring& strDesc ) noexcept
+    explicit CRoom( ROOM_TYPE type, CONDITION_TYPE cnd, const tstring& strId, const tstring& strDesc )
         : m_rmType( type ),
           m_cndType( cnd ),
           m_strTransition(),
@@ -98,7 +98,7 @@ public:
     { };
 
     /// Copy Constructor
-    CRoom( const CRoom& othr ) noexcept
+    CRoom( const CRoom& othr )
         : m_rmType         ( othr.m_rmType ),
           m_cndType        ( othr.m_cndType ),
           m_strTransition  ( othr.m_strTransition ),
@@ -108,8 +108,7 @@ public:
     { };
 
     /// Default Destructor
-    virtual ~CRoom()
-    { };
+    virtual ~CRoom() = default;
 
     /// assignment operator
     CRoom& operator= (const CRoom& rhs)
@@ -129,7 +128,7 @@ public:
     void                Initialize ( CONDITION_TYPE cnd, tstring strID, tstring strDesc );
 
 
-    bool                IsFinished ( void ) const;
+    bool                IsFinished ( void ) const noexcept;
 
  /**
     @brief Returns the ID of the next room
@@ -150,7 +149,7 @@ public:
     virtual CRoom*                Execute         ( CRoomMap*, int& iHealth ) = 0;
 
     // Accessor methods
-    constexpr const tstring&      GetIdentifier   ( void ) const
+    constexpr const tstring&      GetIdentifier   ( void ) const noexcept
     { return m_strIdentifier; };
 
     void                          SetIdentifier   ( const tstring& strIdent )
@@ -172,12 +171,12 @@ public:
     constexpr const neighbors&    GetNeighbors    ( void ) const
     { return m_mapNeighbors; };
 
-    neighbors&                    GetNeighbors    ( void )
+    neighbors&                    GetNeighbors    ( void ) noexcept
     { return m_mapNeighbors; };
 
     bool                          AddNeighbor     ( int iTransKey, const tstring& strValue );
 
-    void                          ClearNeighbors  ( void )
+    void                          ClearNeighbors  ( void ) noexcept
     { m_mapNeighbors.clear(); };
 
 

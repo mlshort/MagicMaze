@@ -52,14 +52,14 @@ public:
     { };
 
     /// Default Destructor
-    ~CGame();
+    ~CGame() = default;
 
 
     bool           LoadConfigFile  ( const TCHAR* szConfigFile );
 
-    bool           IsGameFinished  ( const CRoom* pRoom ) const;
+    bool           IsGameFinished  ( const CRoom* pRoom ) const noexcept;
 
-    constexpr int  GetHealth       ( void ) const
+    constexpr int  GetHealth       ( void ) const noexcept
     { return m_iHealth; };
 
     CRoom*         FindNextRoom    ( const CRoom* pRoom )

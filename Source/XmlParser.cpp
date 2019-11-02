@@ -40,12 +40,12 @@ bool CXmlParser::Create(void)
         m_pIXmlReader = nullptr;
     }
 
-    ::CreateXmlReader(__uuidof( IXmlReader ), reinterpret_cast<LPVOID*>( &m_pIXmlReader ), 0);
+    ::CreateXmlReader(__uuidof( IXmlReader ), reinterpret_cast<LPVOID*>( &m_pIXmlReader ), nullptr);
     _ASSERTE(m_pIXmlReader);
     return m_pIXmlReader != nullptr;
 }
 
-void CXmlParser::Destroy()
+void CXmlParser::Destroy() noexcept
 {
     if (m_pIXmlReader != nullptr)
         m_pIXmlReader->Release();
@@ -56,7 +56,8 @@ void CXmlParser::SetHandler(IXmlElementHandler * pHandler)
 {
     _ASSERTE(m_pIXmlReader);
     m_pHandler = pHandler;
-    pHandler->OnParseInit(this);
+    if (pHandler)
+       pHandler->OnParseInit(this);
 }
 
 

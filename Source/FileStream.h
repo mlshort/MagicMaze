@@ -24,17 +24,16 @@ class CFileStream : public IStream
     LONG   m_refCount;
 
 /// Initialization constructor
-    CFileStream(HANDLE hFile)
+    CFileStream(HANDLE hFile) noexcept
         : IStream(),
           m_hFile (hFile),
           m_refCount(1)
     { };
 
+public:
 /// Default Destructor
     virtual ~CFileStream();
 
-
-public:
     HRESULT static OpenFile(const TCHAR* pName, IStream** ppIStream, bool fWrite);
 
     // IUknown Interface

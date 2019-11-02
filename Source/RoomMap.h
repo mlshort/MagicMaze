@@ -49,7 +49,7 @@ public:
     { };
 
     /// Default Destructor
-    ~CRoomMap();
+    ~CRoomMap() = default;
 
     bool    Initialize       (const PUZZLE_DATA& data);
 

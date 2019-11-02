@@ -28,7 +28,7 @@ void  CRoom::Initialize( CONDITION_TYPE cnd, tstring strID, tstring strDesc )
     This method translates the END_CONDITION enum into a boolean value( i.e., WIN, LOSE, QUIT
     translate to true and NONE translates to false ).
 */
-bool CRoom::IsFinished(void) const
+bool CRoom::IsFinished(void) const noexcept
 {
     bool bResult = false;
 

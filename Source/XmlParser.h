@@ -41,17 +41,17 @@ struct ATTRIBUTE
           m_strValue()
     { };
 
-    explicit ATTRIBUTE( const wchar_t* szName ) noexcept
+    explicit ATTRIBUTE( const wchar_t* szName )
         : m_strName( szName ),
           m_strValue()
     { };
 
-    explicit ATTRIBUTE( const wchar_t* szName, const wchar_t* szValue ) noexcept
+    explicit ATTRIBUTE( const wchar_t* szName, const wchar_t* szValue )
         : m_strName( szName ),
           m_strValue( szValue)
     { };
 
-    ATTRIBUTE( const ATTRIBUTE& othr ) noexcept
+    ATTRIBUTE( const ATTRIBUTE& othr )
         : m_strName( othr.m_strName ),
           m_strValue( othr.m_strValue )
     { };
@@ -109,7 +109,7 @@ public:
    { m_pHandler = nullptr; };
 
    bool Create      (void);
-   void Destroy     (void);
+   void Destroy     (void) noexcept;
    void SetHandler  (IXmlElementHandler* pHandler);
 
 
@@ -154,8 +154,8 @@ public:
 
 #define END_XML_PARSE_MAP() }; \
    virtual void OnCharacterData(const TCHAR* szName, const TCHAR* szValue, int cch) { if ( _pData != nullptr ) (*_pData) += tstring(szValue, (size_t)cch); }; \
-   virtual void OnEndElement(const TCHAR* /*pszName*/) { _pData = nullptr; }; \
-   virtual void OnParseInit(CXmlParser* pParser) { _pData = nullptr; _pParser = pParser; };
+   virtual void OnEndElement(const TCHAR* /*pszName*/) noexcept { _pData = nullptr; }; \
+   virtual void OnParseInit(CXmlParser* pParser) noexcept { _pData = nullptr; _pParser = pParser; };
 
 #define XML_DEFINE_TEMP(_temp) _temp;
 

@@ -59,9 +59,9 @@ public:
             XML_ATTRIB_STR(_T("target"), pNeighbor->m_strTarget)
         END_XML_ELEMENT()
     END_XML_PARSE_MAP()
-
-    virtual void OnAttribute(const TCHAR* pszName, const TCHAR* pszValue);
-    virtual void OnElementInit(const TCHAR* pszName);
+    
+    void OnAttribute(const TCHAR* pszName, const TCHAR* pszValue) override;
+    void OnElementInit(const TCHAR* pszName) override;
 };
 
 

@@ -28,39 +28,41 @@ using std::resetiosflags;
 using std::ios;
 
 
-
-CNormalRoom::~CNormalRoom()
-{
-}
-
 CRoom* CNormalRoom::Execute( CRoomMap* pRoomMap, int& iHealth )
 {
-    iHealth--;
-
-    tcout << std::setiosflags( std::ios::left )
-          << std::setfill<TCHAR>(' ') << setw( 20 );
-
-    tcout << _T( "View:" ) << std::endl;
-
-    OutputConsoleFillChar( '-' );
-    OutputConsoleText( GetDescription().c_str() );
-    OutputConsoleFillChar( '-' );
-
-
-    tcout << setw(20);
-    tcout << _T("Health:") << setw(20)
-                           << iHealth << std::endl << std::endl;
-    tcout << setw(20);
-    tcout << _T("Available Moves:");
-    for ( const auto& it : GetNeighbors() )
+    if (pRoomMap)
     {
-        tcout << static_cast<TCHAR>(it.first) << _T(" ");
+        iHealth--;
+
+        tcout << std::setiosflags(std::ios::left)
+            << std::setfill<TCHAR>(' ') << setw(20);
+
+        tcout << _T("View:") << std::endl;
+
+        OutputConsoleFillChar('-');
+        OutputConsoleText(GetDescription().c_str());
+        OutputConsoleFillChar('-');
+
+
+        tcout << setw(20);
+        tcout << _T("Health:") << setw(20)
+            << iHealth << std::endl << std::endl;
+        tcout << setw(20);
+        tcout << _T("Available Moves:");
+        for (const auto& it : GetNeighbors())
+        {
+            tcout << static_cast<TCHAR>(it.first) << _T(" ");
+        }
+        tcout << std::endl << std::endl;
+
+        tcout << _T("Select a Move:");
+
+        tcin >> this->m_strTransition;
+
+        return pRoomMap->FindNextRoom(this);
     }
-    tcout << std::endl << std::endl;
-
-    tcout << _T("Select a Move:");
-
-    tcin >> this->m_strTransition;
-
-    return pRoomMap->FindNextRoom ( this );
+    else
+    {
+        return nullptr;
+    }
 };

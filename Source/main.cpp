@@ -87,7 +87,7 @@ void splashScreen()
     PauseConsole();
 }
 
-void displayGameDone( const CRoom* room, int health)
+void displayGameDone( const CRoom* pRoom, int health)
 {
     ClearConsole();
 
@@ -98,9 +98,16 @@ void displayGameDone( const CRoom* room, int health)
             tcout << _T("GAME OVER...") << std::endl;
             tcout << std::endl;
     }
+    else if (pRoom == nullptr)
+    {
+        tcout << std::endl;
+        tcout << _T("runtime error, pRoom == nullptr") << std::endl;
+        tcout << _T("GAME IS REALLY OVER...") << std::endl;
+        tcout << std::endl;
+    }
     else
     {
-        switch( room->GetConditionType() )
+        switch( pRoom->GetConditionType() )
         {
         case CND_WIN:
             tcout << std::endl;
