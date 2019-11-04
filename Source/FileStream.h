@@ -39,7 +39,7 @@ public:
     // IUknown Interface
     virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID iid, __RPC__deref_out _Result_nullonfailure_ void __RPC_FAR *__RPC_FAR *ppvObject);
     virtual ULONG   STDMETHODCALLTYPE AddRef(void);
-    virtual ULONG   STDMETHODCALLTYPE Release(void);
+    virtual ULONG   STDMETHODCALLTYPE Release(void) noexcept;
 
     // ISequentialStream Interface
     virtual HRESULT STDMETHODCALLTYPE Read(_Out_writes_bytes_to_(cb, *pcbRead) void* pv, _In_ ULONG cb, _Out_opt_ ULONG* pcbRead);

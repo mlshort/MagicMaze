@@ -49,7 +49,7 @@ struct NEIGHBOR_DATA
         if (this != &rhs)
         {
             m_iTransitionKey = rhs.m_iTransitionKey;
-            m_strTarget        = rhs.m_strTarget;
+            m_strTarget      = rhs.m_strTarget;
         }
         return *this;
     };

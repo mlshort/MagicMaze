@@ -42,7 +42,7 @@ public:
     { };
 
     /// Default Destructor
-    ~CMagicRoom() = default;
+    virtual ~CMagicRoom() = default;
 
     // virtual methods
     CRoom* Execute( CRoomMap*, int& iHealth ) override;

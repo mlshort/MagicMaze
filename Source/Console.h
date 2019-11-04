@@ -23,10 +23,10 @@
     #include <tchar.h>
 #endif
 
-void ClearConsole         ( void );
+void ClearConsole         ( void ) noexcept;
 void PauseConsole         ( void );
-int  GetConsoleBufferWidth( void );
+int  GetConsoleBufferWidth( void ) noexcept;
 void OutputConsoleText    ( const TCHAR* sz );
-void OutputConsoleFillChar( int iChar );
+void OutputConsoleFillChar( int iChar ) noexcept;
 
 #endif

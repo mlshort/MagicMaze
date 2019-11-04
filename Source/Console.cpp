@@ -21,7 +21,7 @@
 
 #include "Console.h"
 
-int GetConsoleBufferWidth( void )
+int GetConsoleBufferWidth( void ) noexcept
 {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
     int iBufferWidth = 0;
@@ -41,7 +41,7 @@ void PauseConsole( void )
     _getch();
 }
 
-void ClearConsole( void )
+void ClearConsole( void ) noexcept
 {
     COORD  topLeft = { 0, 0 };
     HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
@@ -57,7 +57,7 @@ void ClearConsole( void )
     SetConsoleCursorPosition( hConsole, topLeft );
 }
 
-void OutputConsoleFillChar( int iChar )
+void OutputConsoleFillChar( int iChar ) noexcept
 {
     HANDLE hConsole = GetStdHandle( STD_OUTPUT_HANDLE );
     CONSOLE_SCREEN_BUFFER_INFO csbi;

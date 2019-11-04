@@ -63,7 +63,7 @@ ULONG STDMETHODCALLTYPE CFileStream::AddRef(void)
     return static_cast<ULONG>(::InterlockedIncrement(&m_refCount));
 }
 
-ULONG STDMETHODCALLTYPE CFileStream::Release(void)
+ULONG STDMETHODCALLTYPE CFileStream::Release(void) noexcept
 {
     ULONG res = static_cast<ULONG>(::InterlockedDecrement(&m_refCount));
     if (res == 0)
