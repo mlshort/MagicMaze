@@ -1,4 +1,4 @@
-Magic Maze: Quest 0
+# Magic Maze: Quest 0
 
 Directory Structure
 ====================
