@@ -37,9 +37,7 @@ Implementation
 1.  Some portions of the Project was reorganized.
     For example, the Visual Studio Project file (.vxproj) moved to Source subdirectory.
 
-2.  XmlLite was used in lieu of TinyXML, mostly due to lack of Windows Unicode support.
-
-    https://msdn.microsoft.com/en-us/library/ms752872(v=vs.85).aspx
+2.  [XmlLite](https://msdn.microsoft.com/en-us/library/ms752872(v=vs.85).aspx) was used in lieu of TinyXML, mostly due to lack of Windows Unicode support.
 
     The XmlLite runtime file, Xmllite.dll, is integrated into the following operating systems and products:
 
