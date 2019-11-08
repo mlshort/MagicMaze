@@ -58,9 +58,9 @@ Implementation
 4.  XML parsing, in general ...
 
     There was deliberate effort made to decouple the core game classes from the details of XML parsing.
-    To this end -
-        * CXmlParser & CXmlGameDataHandler serve as the parsing engine;
-        * PUZZLE_DATA, ROOM_DATA, NEIGHBOR_DATA serve as the intermediary raw data structures; and,
-        * CGame invokes the instantiation of the parsing engine and the subsequent dispatching of
-          the raw data structures to CRoomMap::Initialize member function.
+    To this end:
+    * CXmlParser & CXmlGameDataHandler serve as the parsing engine;
+    * PUZZLE_DATA, ROOM_DATA, NEIGHBOR_DATA serve as the intermediary raw data structures; and,
+    * CGame invokes the instantiation of the parsing engine and the subsequent dispatching of
+      the raw data structures to CRoomMap::Initialize member function.
 
