@@ -121,7 +121,7 @@ public:
 // XML attribute map macros
 
 #define BEGIN_XML_PARSE_MAP() tstring* _pData; CXmlParser* _pParser; \
-   virtual void OnStartElement(const TCHAR* szElement, const std::vector<ATTRIBUTE>& rgAttr) { _pData = nullptr;
+   void OnStartElement(const TCHAR* szElement, const std::vector<ATTRIBUTE>& rgAttr) override { _pData = nullptr;
 
 // #define BEGIN_XML_ELEMENT(_name) if ( _tcscmp( _name, szElement)==0 ) for ( const TCHAR** _it = rgAttr; *_it; _it += 2 ) {
 #define BEGIN_XML_ELEMENT(_ele) if ( _tcscmp( _ele, szElement)==0 ) for ( auto _it = rgAttr.begin(); _it != rgAttr.end(); ++_it ) {
@@ -153,9 +153,9 @@ public:
 #define END_XML_ELEMENT() }
 
 #define END_XML_PARSE_MAP() }; \
-   virtual void OnCharacterData(const TCHAR* szName, const TCHAR* szValue, int cch) { if ( _pData != nullptr ) (*_pData) += tstring(szValue, (size_t)cch); }; \
-   virtual void OnEndElement(const TCHAR* /*pszName*/) noexcept { _pData = nullptr; }; \
-   virtual void OnParseInit(CXmlParser* pParser) noexcept { _pData = nullptr; _pParser = pParser; };
+   void OnCharacterData(const TCHAR* szName, const TCHAR* szValue, int cch) override { if ( _pData != nullptr ) (*_pData) += tstring(szValue, (size_t)cch); }; \
+   void OnEndElement(const TCHAR* /*pszName*/) override { _pData = nullptr; }; \
+   void OnParseInit(CXmlParser* pParser) override { _pData = nullptr; _pParser = pParser; };
 
 #define XML_DEFINE_TEMP(_temp) _temp;
 

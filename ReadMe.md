@@ -1,8 +1,8 @@
-Magic Maze: Quest 0
+# Magic Maze: Quest 0
 
 Directory Structure
 ====================
-```<language>
+```
   Magic Maze (Solution File)  
      |  
      +-- Game (binaries)  
