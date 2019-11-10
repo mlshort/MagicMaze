@@ -37,9 +37,7 @@ Implementation
 1.  Some portions of the Project was reorganized.
     For example, the Visual Studio Project file (.vxproj) moved to Source subdirectory.
 
-2.  XmlLite was used in lieu of TinyXML, mostly due to lack of Windows Unicode support.
-
-    https://msdn.microsoft.com/en-us/library/ms752872(v=vs.85).aspx
+2.  [XmlLite](https://msdn.microsoft.com/en-us/library/ms752872(v=vs.85).aspx) was used in lieu of TinyXML, mostly due to lack of Windows Unicode support.
 
     The XmlLite runtime file, Xmllite.dll, is integrated into the following operating systems and products:
 
@@ -60,9 +58,9 @@ Implementation
 4.  XML parsing, in general ...
 
     There was deliberate effort made to decouple the core game classes from the details of XML parsing.
-    To this end -
-        * CXmlParser & CXmlGameDataHandler serve as the parsing engine;
-        * PUZZLE_DATA, ROOM_DATA, NEIGHBOR_DATA serve as the intermediary raw data structures; and,
-        * CGame invokes the instantiation of the parsing engine and the subsequent dispatching of
-          the raw data structures to CRoomMap::Initialize member function.
+    To this end:
+    * CXmlParser & CXmlGameDataHandler serve as the parsing engine;
+    * PUZZLE_DATA, ROOM_DATA, NEIGHBOR_DATA serve as the intermediary raw data structures; and,
+    * CGame invokes the instantiation of the parsing engine and the subsequent dispatching of
+      the raw data structures to CRoomMap::Initialize member function.
 
